@@ -74,11 +74,7 @@ const getFeedData = async (req, res) => {
         const currUserId = req._id;
         const currUser = await User.findById(currUserId).populate('followings')
 
-        const allPosts = await Posts.find({
-            'owner': {
-                '$in': currUser.followings
-            }
-        }).populate('owner');
+        const allPosts = await Posts.find().populate('owner');
 
 
         const posts = allPosts.map(item => mapPost(item, req._id)).reverse()
