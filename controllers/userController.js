@@ -77,6 +77,7 @@ const getFeedData = async (req, res) => {
         const allPosts = await Posts.find().populate('owner');
 
 
+
         const posts = allPosts.map(item => mapPost(item, req._id)).reverse()
 
 
