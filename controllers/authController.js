@@ -45,7 +45,7 @@ const signUpController = async (req, res) => {
             httpOnly: true,
             secure: true
         })
-        return res.send(success(201, accessToken))
+        return res.send(success(201, { accessToken }))
 
 
 
@@ -55,7 +55,6 @@ const signUpController = async (req, res) => {
 
     }
 }
-
 
 
 
