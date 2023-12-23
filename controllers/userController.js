@@ -318,6 +318,7 @@ const updateProfile = async (req, res) => {
 
         const user = await User.findById(req._id);
         if (userName) {
+            
             user.username = userName;
 
         }
