@@ -13,18 +13,21 @@ const googleSignUp = async (req, res) => {
       currUser = await User.create({
         name,
         email,
-        password: "google",
+        password: "google"
       });
     }
 
     const accessToken = createAccessToken({ _id: currUser._id });
+    
     const refreshToken = createRefreshToken({ _id: currUser._id });
     res.cookie("jwt", refreshToken, {
       httpOnly: true,
       secure: true,
     });
     return res.send(success(201, { accessToken }));
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const signUpController = async (req, res) => {
