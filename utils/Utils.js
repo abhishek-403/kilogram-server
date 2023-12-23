@@ -13,7 +13,8 @@ const mapPost = (post, userId) => {
         },
         likesCount: post.likes.length,
         isLiked: post.likes.includes(userId),
-        timeAgo: ta.ago(post.createdAt)
+        timeAgo: ta.ago(post.createdAt),
+        isMyPost:post.owner._id==userId
     }
 }
 
